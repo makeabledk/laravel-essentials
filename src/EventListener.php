@@ -31,14 +31,11 @@ class EventListener
 
         if ($this->isEvent($listener)) {
             event($listener);
-        }
-        elseif ($this->isJob($listener)) {
+        } elseif ($this->isJob($listener)) {
             dispatch($listener);
-        }
-        elseif ($this->isNotification($listener)) {
+        } elseif ($this->isNotification($listener)) {
             app(Dispatcher::class)->send($listener->routeNotificationForEvent($event), $listener);
-        }
-        else {
+        } else {
             $listener->handle($event);
         }
     }
