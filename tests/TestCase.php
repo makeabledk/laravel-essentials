@@ -1,7 +1,8 @@
 <?php
 
-namespace Makeable\LaravelEventStore\Tests;
+namespace Makeable\LaravelEssentials\Tests;
 
+use App\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -21,5 +22,13 @@ class TestCase extends BaseTestCase
         $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    /**
+     * @return User
+     */
+    protected function user()
+    {
+        return factory(User::class)->create();
     }
 }

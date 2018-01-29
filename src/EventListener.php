@@ -29,11 +29,16 @@ class EventListener
     {
         $listener = app()->makeWith($this->listenerClass, get_object_vars($event));
 
-        if ($this->isDispatchable($listener)) {
+        if ($this->isEvent($listener)) {
+            event($listener);
+        }
+        elseif ($this->isJob($listener)) {
             dispatch($listener);
-        } elseif ($this->isNotification($listener)) {
+        }
+        elseif ($this->isNotification($listener)) {
             app(Dispatcher::class)->send($listener->routeNotificationForEvent($event), $listener);
-        } else {
+        }
+        else {
             $listener->handle($event);
         }
     }
@@ -42,9 +47,18 @@ class EventListener
      * @param $listener
      * @return bool
      */
-    protected function isDispatchable($listener)
+    protected function isEvent($listener)
     {
-        return method_exists($listener, 'dispatch');
+        return array_get(class_uses($listener), \Illuminate\Foundation\Events\Dispatchable::class) !== null;
+    }
+
+    /**
+     * @param $listener
+     * @return bool
+     */
+    protected function isJob($listener)
+    {
+        return array_get(class_uses($listener), \Illuminate\Foundation\Bus\Dispatchable::class) !== null;
     }
 
     /**

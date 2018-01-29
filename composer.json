@@ -19,10 +19,7 @@
     "autoload-dev": {
         "psr-4": {
             "Makeable\\LaravelEssentials\\Tests\\": "tests/"
-        },
-        "classmap": [
-            "tests/stubs"
-        ]
+        }
     },
     "scripts": {
         "test": "./vendor/bin/phpunit",
