@@ -1,5 +1,5 @@
 
-# Laravel Event Store
+# Laravel Essentials
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/makeabledk/laravel-essentials.svg?style=flat-square)](https://packagist.org/packages/makeabledk/laravel-essentials)
 [![Build Status](https://img.shields.io/travis/makeabledk/laravel-essentials/master.svg?style=flat-square)](https://travis-ci.org/makeabledk/laravel-essentials)
