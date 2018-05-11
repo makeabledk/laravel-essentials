@@ -14,12 +14,12 @@ class UserResource extends Resource
             'email' => $this->email,
 
             $this->mergeWhen($this->is('self'), [
-                'password' => 'superman'
+                'password' => 'superman',
             ]),
 
             $this->mergeWhen($this->isEither('self', 'developer'), [
-                'secret' => 'foo'
-            ])
+                'secret' => 'foo',
+            ]),
         ];
     }
 }

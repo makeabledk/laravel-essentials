@@ -2,10 +2,10 @@
 
 namespace Makeable\LaravelEssentials\Resources;
 
-use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
-use IteratorAggregate;
-use Illuminate\Pagination\AbstractPaginator;
 use Illuminate\Http\Resources\CollectsResources;
+use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
+use Illuminate\Pagination\AbstractPaginator;
+use IteratorAggregate;
 
 class ResourceCollection extends Resource implements IteratorAggregate
 {

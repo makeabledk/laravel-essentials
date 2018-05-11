@@ -3,17 +3,8 @@
 namespace Makeable\LaravelEssentials\Tests\Feature;
 
 use App\User;
-use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Notification;
-use Makeable\LaravelEssentials\EventListener;
-use Makeable\LaravelEssentials\Tests\Stubs\RegisterUserInCRM;
-use Makeable\LaravelEssentials\Tests\Stubs\UserRegistered;
-use Makeable\LaravelEssentials\Tests\Stubs\UserRegisteredThroughCampaign;
 use Makeable\LaravelEssentials\Tests\Stubs\UserResource;
-use Makeable\LaravelEssentials\Tests\Stubs\UserWelcomeNotification;
 use Makeable\LaravelEssentials\Tests\TestCase;
 
 class ApiResourceTest extends TestCase
