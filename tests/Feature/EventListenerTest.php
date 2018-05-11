@@ -3,6 +3,7 @@
 namespace Makeable\LaravelEssentials\Tests\Feature;
 
 use App\User;
+use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
@@ -32,6 +33,22 @@ class EventListenerTest extends TestCase
         Event::listen(UserRegistered::class, new EventListener(RegisterUserInCRM::class));
 
         $this->assertFalse(app('registered_crm_user')->exists);
+
+        event(new UserRegistered($user = $this->user()));
+
+        $this->assertTrue($user->is(app('registered_crm_user')));
+    }
+
+    /** @test **/
+    public function a_dispatching_job_can_be_customized_in_a_callable()
+    {
+        app()->instance('registered_crm_user', new User());
+
+        $this->expectExceptionMessage('callback executed with pending dispatch');
+
+        Event::listen(UserRegistered::class, new EventListener(RegisterUserInCRM::class, function (PendingDispatch $job) {
+            throw new \Exception('callback executed with pending dispatch');
+        }));
 
         event(new UserRegistered($user = $this->user()));
 

@@ -8,17 +8,24 @@ use Illuminate\Notifications\Notification;
 class EventListener
 {
     /**
-     * @var
+     * @var string
      */
     protected $listenerClass;
 
     /**
+     * @var callable
+     */
+    protected $callable;
+
+    /**
      * EventListener constructor.
      * @param $listenerClass
+     * @param $callable
      */
-    public function __construct($listenerClass)
+    public function __construct($listenerClass, $callable = null)
     {
         $this->listenerClass = $listenerClass;
+        $this->callable = $callable ?: function () {};
     }
 
     /**
@@ -32,7 +39,7 @@ class EventListener
         if ($this->isEvent($listener)) {
             event($listener);
         } elseif ($this->isJob($listener)) {
-            dispatch($listener);
+            call_user_func($this->callable, dispatch($listener));
         } elseif ($this->isNotification($listener)) {
             app(Dispatcher::class)->send($listener->routeNotificationForEvent($event), $listener);
         } else {
