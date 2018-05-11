@@ -24,7 +24,7 @@ class Resource extends \Illuminate\Http\Resources\Json\Resource
 
     /**
      * @param mixed ...$roles
-     * @return resource
+     * @return $this
      */
     public function as(...$roles)
     {
