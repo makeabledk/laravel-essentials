@@ -25,7 +25,8 @@ class EventListener
     public function __construct($listenerClass, $callable = null)
     {
         $this->listenerClass = $listenerClass;
-        $this->callable = $callable ?: function () {};
+        $this->callable = $callable ?: function () {
+        };
     }
 
     /**
