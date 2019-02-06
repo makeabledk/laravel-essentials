@@ -2,6 +2,7 @@
 
 namespace Makeable\LaravelEssentials\Resources;
 
+use Illuminate\Http\Resources\MergeValue;
 use Illuminate\Support\Arr;
 
 class Resource extends \Illuminate\Http\Resources\Json\Resource
@@ -57,6 +58,21 @@ class Resource extends \Illuminate\Http\Resources\Json\Resource
         }
 
         return false;
+    }
+
+    /**
+     * Merge the given attributes or all none-hidden attributes on the model
+     *
+     * @param  array  $attributes
+     * @return \Illuminate\Http\Resources\MergeValue
+     */
+    protected function attributes($attributes = null)
+    {
+        if ($attributes === null) {
+            return new MergeValue($this->resource->attributesToArray());
+        }
+
+        return parent::attributes($attributes);
     }
 
     /**
