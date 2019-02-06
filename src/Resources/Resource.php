@@ -61,7 +61,7 @@ class Resource extends \Illuminate\Http\Resources\Json\Resource
     }
 
     /**
-     * Merge the given attributes or all none-hidden attributes on the model
+     * Merge the given attributes or all none-hidden attributes on the model.
      *
      * @param  array  $attributes
      * @return \Illuminate\Http\Resources\MergeValue
