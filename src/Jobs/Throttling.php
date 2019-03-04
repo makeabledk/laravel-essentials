@@ -22,6 +22,6 @@ trait Throttling
      */
     public function throttle()
     {
-        return Throttle::job($this, config("queue.default") === 'redis');
+        return Throttle::job($this, config('queue.default') === 'redis');
     }
 }
