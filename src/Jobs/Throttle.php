@@ -7,7 +7,7 @@ use Illuminate\Redis\Limiters\DurationLimiterBuilder;
 use Illuminate\Support\Facades\Redis;
 
 /**
- * Class Throttle
+ * Class Throttle.
  *
  * @method Throttle allow($number)
  * @method Throttle every($seconds)
@@ -17,14 +17,14 @@ class Throttle
     const TooManyRequests = 429;
 
     /**
-     * The default amount of tries
+     * The default amount of tries.
      *
      * @var int | null
      */
     public static $defaultTries;
 
     /**
-     * The job instance
+     * The job instance.
      *
      * @var InteractsWithQueue
      */
@@ -57,9 +57,9 @@ class Throttle
         if ($this->job->throttleOptions === null) {
             $this->job->throttleOptions = [
                 'jobConfig' => [
-                    'tries' => static::$defaultTries ?? config('horizon.environments.'.app()->environment().'.supervisor-1.tries') ?? 3
+                    'tries' => static::$defaultTries ?? config('horizon.environments.'.app()->environment().'.supervisor-1.tries') ?? 3,
                 ],
-                'throttleConfig' => []
+                'throttleConfig' => [],
             ];
         }
 
