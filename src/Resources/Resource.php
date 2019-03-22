@@ -76,6 +76,19 @@ class Resource extends \Illuminate\Http\Resources\Json\Resource
     }
 
     /**
+     * Merge all none-hidden attributes on the model except given keys
+     *
+     * @param  array  $attributes
+     * @return \Illuminate\Http\Resources\MergeValue
+     */
+    protected function attributesExcept($attributes)
+    {
+        return new MergeValue(
+            Arr::except($this->resource->attributesToArray(), is_array($attributes) ? $attributes : func_get_args())
+        );
+    }
+
+    /**
      * @param $array
      * @return array
      */
