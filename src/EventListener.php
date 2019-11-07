@@ -4,6 +4,7 @@ namespace Makeable\LaravelEssentials;
 
 use Illuminate\Contracts\Notifications\Dispatcher;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Arr;
 
 class EventListener
 {
@@ -54,7 +55,7 @@ class EventListener
      */
     protected function isEvent($listener)
     {
-        return array_get(class_uses($listener), \Illuminate\Foundation\Events\Dispatchable::class) !== null;
+        return Arr::get(class_uses($listener), \Illuminate\Foundation\Events\Dispatchable::class) !== null;
     }
 
     /**
@@ -63,7 +64,7 @@ class EventListener
      */
     protected function isJob($listener)
     {
-        return array_get(class_uses($listener), \Illuminate\Foundation\Bus\Dispatchable::class) !== null;
+        return Arr::get(class_uses($listener), \Illuminate\Foundation\Bus\Dispatchable::class) !== null;
     }
 
     /**

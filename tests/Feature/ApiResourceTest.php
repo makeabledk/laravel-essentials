@@ -4,6 +4,7 @@ namespace Makeable\LaravelEssentials\Tests\Feature;
 
 use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Arr;
 use Makeable\LaravelEssentials\Tests\Stubs\UserResource;
 use Makeable\LaravelEssentials\Tests\TestCase;
 
@@ -28,10 +29,10 @@ class ApiResourceTest extends TestCase
         $this->user();
 
         $resources = UserResource::collection(User::all());
-        $this->assertArrayNotHasKey('password', array_first($resources->resolve()));
+        $this->assertArrayNotHasKey('password', Arr::first($resources->resolve()));
 
         $resources->as(['self']); // arrays are accepted too
-        $this->assertArrayHasKey('password', array_first($resources->resolve()));
+        $this->assertArrayHasKey('password', Arr::first($resources->resolve()));
     }
 
     /** @test **/
