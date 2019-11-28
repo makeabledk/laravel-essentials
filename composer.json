@@ -23,6 +23,13 @@
             "Makeable\\LaravelEssentials\\Tests\\": "tests/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Makeable\\LaravelEssentials\\EssentialsServiceProvider"
+            ]
+        }
+    },
     "scripts": {
         "test": "./vendor/bin/phpunit"
     }
