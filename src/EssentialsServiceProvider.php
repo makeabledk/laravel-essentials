@@ -2,8 +2,8 @@
 
 namespace Makeable\LaravelEssentials;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Support\ServiceProvider;
 
 class EssentialsServiceProvider extends ServiceProvider
 {
