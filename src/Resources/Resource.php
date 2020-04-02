@@ -5,7 +5,7 @@ namespace Makeable\LaravelEssentials\Resources;
 use Illuminate\Http\Resources\MergeValue;
 use Illuminate\Support\Arr;
 
-class Resource extends \Illuminate\Http\Resources\Json\Resource
+class Resource extends \Illuminate\Http\Resources\Json\JsonResource
 {
     /**
      * @var array
