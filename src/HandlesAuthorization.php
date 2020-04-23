@@ -15,7 +15,9 @@ trait HandlesAuthorization
      */
     protected function denyIf($condition, $message = null)
     {
-        abort_if($condition, $this->deny($message));
+        if ($condition) {
+            $this->deny($message)->authorize();
+        }
     }
 
     /**
@@ -27,6 +29,8 @@ trait HandlesAuthorization
      */
     protected function denyUnless($condition, $message = null)
     {
-        abort_unless($condition, $this->deny($message));
+        if (! $condition) {
+            $this->deny($message)->authorize();
+        }
     }
 }
