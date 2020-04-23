@@ -11,7 +11,7 @@ trait HandlesAuthorization
      * @param  string  $message
      * @return void
      *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     protected function denyIf($condition, $message = null)
     {
@@ -25,7 +25,7 @@ trait HandlesAuthorization
      * @param  string  $message
      * @return void
      *
-     * @throws \Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     protected function denyUnless($condition, $message = null)
     {
