@@ -11,7 +11,7 @@ class UserRegistered
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var \App\User
+     * @var User
      */
     public $user;
 
@@ -20,7 +20,7 @@ class UserRegistered
      *
      * @return void
      */
-    public function __construct(\App\User $user)
+    public function __construct(User $user)
     {
         $this->user = $user;
     }

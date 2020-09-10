@@ -2,7 +2,6 @@
 
 namespace Makeable\LaravelEssentials\Tests\Stubs;
 
-use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;

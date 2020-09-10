@@ -2,7 +2,7 @@
 
 namespace Makeable\LaravelEssentials\Tests\Feature;
 
-use App\User;
+use Makeable\LaravelEssentials\Tests\Stubs\User;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
