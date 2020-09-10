@@ -35,7 +35,7 @@ class TestCase extends BaseTestCase
         $user = (new User)->forceFill([
             'name' => 'Foo',
             'email' => uniqid('foo-').'@example.org',
-            'password' => bcrypt('foo')
+            'password' => bcrypt('foo'),
         ]);
         $user->save();
 

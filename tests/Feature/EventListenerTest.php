@@ -2,13 +2,13 @@
 
 namespace Makeable\LaravelEssentials\Tests\Feature;
 
-use Makeable\LaravelEssentials\Tests\Stubs\User;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use Makeable\LaravelEssentials\EventListener;
 use Makeable\LaravelEssentials\Tests\Stubs\RegisterUserInCRM;
+use Makeable\LaravelEssentials\Tests\Stubs\User;
 use Makeable\LaravelEssentials\Tests\Stubs\UserRegistered;
 use Makeable\LaravelEssentials\Tests\Stubs\UserRegisteredThroughCampaign;
 use Makeable\LaravelEssentials\Tests\Stubs\UserWelcomeNotification;
