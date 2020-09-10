@@ -2,8 +2,9 @@
 
 namespace Makeable\LaravelEssentials\Tests;
 
-use App\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Support\Facades\Hash;
+use Makeable\LaravelEssentials\Tests\Stubs\User;
 
 class TestCase extends BaseTestCase
 {
@@ -21,6 +22,8 @@ class TestCase extends BaseTestCase
         $app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
         $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
+        Hash::setRounds(4);
+
         return $app;
     }
 
@@ -29,6 +32,13 @@ class TestCase extends BaseTestCase
      */
     protected function user()
     {
-        return factory(User::class)->create();
+        $user = (new User)->forceFill([
+            'name' => 'Foo',
+            'email' => uniqid('foo-').'@example.org',
+            'password' => bcrypt('foo'),
+        ]);
+        $user->save();
+
+        return $user;
     }
 }

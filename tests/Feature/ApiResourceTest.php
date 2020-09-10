@@ -2,9 +2,9 @@
 
 namespace Makeable\LaravelEssentials\Tests\Feature;
 
-use App\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Arr;
+use Makeable\LaravelEssentials\Tests\Stubs\User;
 use Makeable\LaravelEssentials\Tests\Stubs\UserResource;
 use Makeable\LaravelEssentials\Tests\TestCase;
 
