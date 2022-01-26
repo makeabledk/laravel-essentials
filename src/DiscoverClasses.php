@@ -15,7 +15,7 @@ class DiscoverClasses
     protected $classes;
 
     /**
-     * @param Collection|array $classes
+     * @param  Collection|array  $classes
      */
     public function __construct($classes)
     {
