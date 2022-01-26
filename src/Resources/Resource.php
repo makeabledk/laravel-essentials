@@ -24,7 +24,7 @@ class Resource extends \Illuminate\Http\Resources\Json\JsonResource
     }
 
     /**
-     * @param mixed ...$roles
+     * @param  mixed  ...$roles
      * @return $this
      */
     public function as(...$roles)
@@ -44,7 +44,7 @@ class Resource extends \Illuminate\Http\Resources\Json\JsonResource
     }
 
     /**
-     * @param array $roles
+     * @param  array  $roles
      * @return bool
      */
     public function isEither(...$roles)

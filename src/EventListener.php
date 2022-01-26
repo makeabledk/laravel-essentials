@@ -20,6 +20,7 @@ class EventListener
 
     /**
      * EventListener constructor.
+     *
      * @param $listenerClass
      * @param $callable
      */
