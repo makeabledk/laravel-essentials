@@ -35,7 +35,7 @@ class Resource extends \Illuminate\Http\Resources\Json\JsonResource
     }
 
     /**
-     * @param $role
+     * @param  $role
      * @return bool
      */
     public function is($role)
@@ -89,7 +89,7 @@ class Resource extends \Illuminate\Http\Resources\Json\JsonResource
     }
 
     /**
-     * @param $array
+     * @param  $array
      * @return array
      */
     protected function normalizeArray($array)

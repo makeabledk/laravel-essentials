@@ -23,8 +23,8 @@ class DiscoverClasses
     }
 
     /**
-     * @param $name
-     * @param $arguments
+     * @param  $name
+     * @param  $arguments
      * @return mixed
      */
     public function __call($name, $arguments)
@@ -33,8 +33,8 @@ class DiscoverClasses
     }
 
     /**
-     * @param $path
-     * @param $namespace
+     * @param  $path
+     * @param  $namespace
      * @return DiscoverClasses
      */
     public static function in($path, $namespace)
@@ -53,7 +53,7 @@ class DiscoverClasses
     }
 
     /**
-     * @param $type
+     * @param  $type
      * @return DiscoverClasses
      */
     public function of($type)
@@ -74,8 +74,8 @@ class DiscoverClasses
     }
 
     /**
-     * @param $rootNamespace
-     * @param $relativePath
+     * @param  $rootNamespace
+     * @param  $relativePath
      * @return string
      */
     protected static function getClassNamespace($rootNamespace, $relativePath)

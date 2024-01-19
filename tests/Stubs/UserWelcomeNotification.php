@@ -26,7 +26,7 @@ class UserWelcomeNotification extends Notification implements ShouldQueue
     }
 
     /**
-     * @param $event
+     * @param  $event
      * @return Notifiable
      */
     public function routeNotificationForEvent($event)
@@ -46,7 +46,7 @@ class UserWelcomeNotification extends Notification implements ShouldQueue
     }
 
     /**
-     * @param $notifiable
+     * @param  $notifiable
      * @return MailMessage
      */
     public function toMail($notifiable)
