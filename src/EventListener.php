@@ -21,8 +21,8 @@ class EventListener
     /**
      * EventListener constructor.
      *
-     * @param $listenerClass
-     * @param $callable
+     * @param  $listenerClass
+     * @param  $callable
      */
     public function __construct($listenerClass, $callable = null)
     {
@@ -32,7 +32,7 @@ class EventListener
     }
 
     /**
-     * @param $event
+     * @param  $event
      * @return mixed
      */
     public function __invoke($event)
@@ -51,7 +51,7 @@ class EventListener
     }
 
     /**
-     * @param $listener
+     * @param  $listener
      * @return bool
      */
     protected function isEvent($listener)
@@ -60,7 +60,7 @@ class EventListener
     }
 
     /**
-     * @param $listener
+     * @param  $listener
      * @return bool
      */
     protected function isJob($listener)
@@ -69,7 +69,7 @@ class EventListener
     }
 
     /**
-     * @param $listener
+     * @param  $listener
      * @return bool
      */
     protected function isNotification($listener)
