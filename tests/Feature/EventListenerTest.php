@@ -13,6 +13,7 @@ use Makeable\LaravelEssentials\Tests\Stubs\UserRegistered;
 use Makeable\LaravelEssentials\Tests\Stubs\UserRegisteredThroughCampaign;
 use Makeable\LaravelEssentials\Tests\Stubs\UserWelcomeNotification;
 use Makeable\LaravelEssentials\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class EventListenerTest extends TestCase
 {
@@ -25,7 +26,7 @@ class EventListenerTest extends TestCase
         Notification::fake();
     }
 
-    /** @test **/
+    #[Test]
     public function it_dispatches_jobs()
     {
         app()->instance('registered_crm_user', new User());
@@ -39,7 +40,7 @@ class EventListenerTest extends TestCase
         $this->assertTrue($user->is(app('registered_crm_user')));
     }
 
-    /** @test **/
+    #[Test]
     public function a_dispatching_job_can_be_customized_in_a_callable()
     {
         app()->instance('registered_crm_user', new User());
@@ -55,7 +56,7 @@ class EventListenerTest extends TestCase
         $this->assertTrue($user->is(app('registered_crm_user')));
     }
 
-    /** @test **/
+    #[Test]
     public function it_dispatches_notifications()
     {
         Event::listen(UserRegistered::class, new EventListener(UserWelcomeNotification::class));
@@ -65,7 +66,7 @@ class EventListenerTest extends TestCase
         Notification::assertSentTo($user, UserWelcomeNotification::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_proxies_events()
     {
         Event::listen(UserRegisteredThroughCampaign::class, new EventListener(UserRegistered::class));

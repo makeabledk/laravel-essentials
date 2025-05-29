@@ -18,6 +18,7 @@ class TestCase extends BaseTestCase
         putenv('APP_ENV=testing');
         putenv('DB_CONNECTION=sqlite');
         putenv('DB_DATABASE=:memory:');
+        putenv('QUEUE_CONNECTION=sync');
 
         $app = require __DIR__.'/../vendor/laravel/laravel/bootstrap/app.php';
         $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();

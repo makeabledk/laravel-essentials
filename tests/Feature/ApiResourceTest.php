@@ -7,12 +7,13 @@ use Illuminate\Support\Arr;
 use Makeable\LaravelEssentials\Tests\Stubs\User;
 use Makeable\LaravelEssentials\Tests\Stubs\UserResource;
 use Makeable\LaravelEssentials\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class ApiResourceTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test **/
+    #[Test]
     public function roles_can_be_added_to_a_resource()
     {
         $resource = new UserResource($this->user());
@@ -22,7 +23,7 @@ class ApiResourceTest extends TestCase
         $this->assertArrayHasKey('password', $resource->resolve());
     }
 
-    /** @test **/
+    #[Test]
     public function roles_can_be_added_to_a_collection()
     {
         $this->user();
@@ -35,7 +36,7 @@ class ApiResourceTest extends TestCase
         $this->assertArrayHasKey('password', Arr::first($resources->resolve()));
     }
 
-    /** @test **/
+    #[Test]
     public function a_resource_can_check_if_matches_any_role()
     {
         $resource = new UserResource($this->user());
